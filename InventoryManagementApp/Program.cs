@@ -28,7 +28,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 
 builder.Services.AddDbContext<IMSContext>(options =>
 {
-    options.UseInMemoryDatabase("IMS");
+    options.UseSqlServer(builder.Configuration.GetConnectionString("InventoryConnection"));
 });
 // DI repositories
 builder.Services.AddTransient<IInventoryRepository, InventoryRepository>();
@@ -58,8 +58,8 @@ var app = builder.Build();
 
 var scope = app.Services.CreateScope();
 var imsContext = scope.ServiceProvider.GetRequiredService<IMSContext>();
-imsContext.Database.EnsureDeleted();
-imsContext.Database.EnsureCreated();
+//imsContext.Database.EnsureDeleted();
+//imsContext.Database.EnsureCreated();
 
 
 // Configure the HTTP request pipeline.

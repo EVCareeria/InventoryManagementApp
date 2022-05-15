@@ -1,5 +1,8 @@
 ﻿@page "/purchase"
 
+@attribute [Authorize]
+
+
 @inject IPurchaseInventoryUseCase PurchaseInventoryUseCase
 
 @using InventoryManagementApp.ViewModels

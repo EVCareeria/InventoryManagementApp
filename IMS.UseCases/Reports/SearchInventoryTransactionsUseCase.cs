@@ -23,7 +23,7 @@ namespace IMS.UseCases.Reports
             InventoryTransactionType? transactionType
             )
         {
-            return await this.inventoryTransactionRepository.GetInventoryTransactions(inventoryName, dateFrom, dateTo, transactionType);
+            return await this.inventoryTransactionRepository.GetInventoryTransactionsAsync(inventoryName, dateFrom, dateTo, transactionType);
         }
     }
 }
